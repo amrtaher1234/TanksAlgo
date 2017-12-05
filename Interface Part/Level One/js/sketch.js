@@ -1,5 +1,5 @@
 var listOfLevels=[] ;
-var currentLevel = 1;
+var currentLevel = 0;
 var b =1; 
 
 

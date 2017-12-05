@@ -35,6 +35,8 @@ class LevelOne extends Level
         this.PX = [873,811,752,753,634,588,539,510,447,402,356,307,240,205,165,116,151,192,255,299,389,398,307,230,188];
         this.PY = [254,288,263,202,192,196,210,236,240,250,277,315,318,278,260,234,203,190,189,190,169,136,145,135,90];
         this.pointPos=0; 
+        this.stop_PointsX = [873,634,402,165,116,389,188];
+        this.stop_PointsY = [254,192,250,260,234,196,90];
         this.tankVector= createVector(850 ,(height/2)+120);
 
     }
@@ -44,7 +46,7 @@ class LevelOne extends Level
     //this.globalSetup(); 
     this.Tank = new VisualTank(this.tankVector.x ,
          this.tankVector.y ,
-         "imgs/tankbody.png" ,
+         "imgs/tankbody.png",
           "imgs/canon.png");
 	this.background  = loadImage("imgs/game_background.jpg");
     }
@@ -55,18 +57,26 @@ class LevelOne extends Level
         this.Tank.update();
         this.Tank.moveToPoint(this.PX[i],this.PY[i]);
         //Tank.shooter(-1); 
-      
+        this.Tank.stopMovement(this.stop_PointsX,this.stop_PointsY);
+        
+
         if (keyWentDown("x"))
         {
             this.Tank.shooter(); 
             //camera.off(); 
         }
+        else if (keyWentDown("m"))
+        {
+            this.Tank.resumeMovement(); 
+            //camera.off(); 
+        }
+        
         if(this.Tank.reachedPoint(this.PX[i],this.PY[i]))
         {
             if(!this.Tank.reachedPoint(this.PX[8],this.PY[8]))
             {
                 i++;
-                
+                 
             }
             else
             {

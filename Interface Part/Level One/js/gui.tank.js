@@ -93,7 +93,7 @@ class VisualTank
         this.canon.setAttractionPoint(0.5,x,y);
        }
         this.canon.canonSprite.rotation+=0.8; 
-           
+    
                //this.shooter(); 
    }
 
@@ -129,13 +129,21 @@ class VisualTank
        this.x = this.Body.position.x;
        this.y = this.Body.position.y;
    }
-   stopMovement(posx , posy)
-   {
-       if (this.reachedPoint(posx , posy))
+   stopMovement(Xpoints_arr = [], Ypoints_arr=[])
+   { 
+       for (let i =0; i<Xpoints_arr.length; i++ )
        {
-           this.attractBoolean=-1; 
+         if (this.reachedPoint(Xpoints_arr[i] , Ypoints_arr[i]))
+         {
+            this.attractBoolean=-1; 
+         } 
        }
    }
+   resumeMovement()
+   {
+       this.attractBoolean=1;
+   }
+
    rotateTank(bodyRotation, canonRotation)
    {
        this.Body.rotation+=bodyRotation; 
