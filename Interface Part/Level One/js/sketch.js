@@ -18,16 +18,9 @@ function setup()
 {
 	listOfLevels = [new LevelOne() , new LevelTwo()];
 	listOfLevels[currentLevel].setup();
-	// healthbar = new Healthbar(500 , 500 , 100 , 100, 200); 
+	
 
 }
-
-
-// var k=setInterval(function(){
-
-// listOfLevels[1].Tank.shooter(); 
-// }
-// ,1000); 
 
 var sh = setInterval(function()
 {
@@ -46,7 +39,7 @@ var sh2 = setInterval(function()
 	listOfLevels[1].spaceEnemyList[i].shooter(); 	
 	}
 }
-//	listOfLevels[1].spaceEnemy.shooter();
+
 } , 3000); 
 
 var p=setInterval(function(){
@@ -82,8 +75,6 @@ function mousePressed()
 }
 catch(err){
 	console.log(err);
-	//nothing
-	
 }
 
 var gogo =setInterval(function()
@@ -91,12 +82,10 @@ var gogo =setInterval(function()
 	if(showOther)
 	{
 		clear(); 
-
 		listOfLevels[0].Tank.Body.remove(); 
 		listOfLevels[0].Tank.canon.canonSprite.remove();  
-		
-	noLoop();
-	clear(); 
+		noLoop();
+		clear(); 
 setup()
 {
 	listOfLevels[1].setup(); 
